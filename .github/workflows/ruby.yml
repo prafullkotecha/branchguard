@@ -8,8 +8,6 @@
 name: Ruby
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -31,3 +29,5 @@ jobs:
       run: bundle install
     - name: Run tests
       run: bundle exec rake
+      env: 
+        SECRET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
